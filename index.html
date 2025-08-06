@@ -1,30 +1,73 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TASSIO SEM MOLEZA HOJE NO DOMINO GANHAR DE CABECA GRAVIDA</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Você tá grávida?</title>
   <style>
     body {
       margin: 0;
       padding: 0;
-      background-color: #fce4ec;
-      color: #880e4f;
+      background-color: #000;
+      color: #fff;
       font-family: Arial, sans-serif;
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: center;
+      align-items: center;
       height: 100vh;
       text-align: center;
     }
 
     h1 {
-      font-size: 8vw;
-      text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+      font-size: 6vw;
+      margin-bottom: 20px;
+    }
+
+    #timer {
+      font-size: 5vw;
+      color: #00ff88;
+      font-weight: bold;
+    }
+
+    #message {
+      font-size: 3vw;
+      margin-top: 20px;
+      color: #ff5555;
     }
   </style>
 </head>
 <body>
-  <h1>TASSIO SEM MOLEZA HOJE NO DOMINO GANHAR DE CABECA GRAVIDA</h1>
+  <h1>Você tá grávida?</h1>
+  <div id="timer">--:--:--</div>
+  <div id="message"></div>
+
+  <script>
+    function atualizarContagem() {
+      const agora = new Date();
+
+      const fim = new Date();
+      fim.setHours(12, 0, 0, 0); // Define horário de 12:00:00
+
+      // Se já passou do meio-dia, mostra mensagem
+      if (agora >= fim) {
+        document.getElementById("timer").textContent = "00:00:00";
+        document.getElementById("message").textContent = "É agora... 😳";
+        return;
+      }
+
+      const tempoRestante = fim - agora;
+
+      const horas = String(Math.floor(tempoRestante / (1000 * 60 * 60))).padStart(2, '0');
+      const minutos = String(Math.floor((tempoRestante % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+      const segundos = String(Math.floor((tempoRestante % (1000 * 60)) / 1000)).padStart(2, '0');
+
+      document.getElementById("timer").textContent = `${horas}:${minutos}:${segundos}`;
+    }
+
+    // Atualiza a contagem a cada segundo
+    atualizarContagem(); // Executa na primeira vez
+    setInterval(atualizarContagem, 1000);
+  </script>
 </body>
 </html>
