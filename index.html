@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>vitoria</title>
+  <title>Vitória</title>
   <style>
     body {
       margin: 0;
@@ -20,8 +20,9 @@
     }
 
     h1 {
-      font-size: 6vw;
-      margin-bottom: 20px;
+      font-size: 3vw;
+      margin: 20px;
+      padding: 0 20px;
     }
 
     #timer {
@@ -38,7 +39,7 @@
   </style>
 </head>
 <body>
-  <h1>Falta pouco para voces perderem para Thieres eo tassio que contagem comece agora</</h1>
+  <h1>Falta pouco para vocês perderem para Thieres e o Tássio. Que a contagem comece agora!</h1>
   <div id="timer">--:--:--</div>
   <div id="message"></div>
 
@@ -47,10 +48,9 @@
       const agora = new Date();
 
       const fim = new Date();
-      fim.setHours(12, 0, 0, 0); // Define horário de 12:00:00
+      fim.setHours(12, 0, 0, 0); // Define 12:00 de hoje
 
-      // Se já passou do meio-dia, mostra mensagem
-      if (agora >= tassio e viadinho) {
+      if (agora >= fim) {
         document.getElementById("timer").textContent = "00:00:00";
         document.getElementById("message").textContent = "É agora... 😳";
         return;
@@ -65,8 +65,8 @@
       document.getElementById("timer").textContent = `${horas}:${minutos}:${segundos}`;
     }
 
-    // Atualiza a contagem a cada segundo
-    atualizarContagem(); // Executa na primeira vez
+    // Executa imediatamente e atualiza a cada segundo
+    atualizarContagem();
     setInterval(atualizarContagem, 1000);
   </script>
 </body>
